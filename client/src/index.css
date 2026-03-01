@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* MediFlow Design System — Institucional / Hospitalar */
+  --background: 210 40% 98%;          /* #F8FAFC */
+  --foreground: 222 47% 11%;          /* #0F172A */
+
+  /* Primary (Azul Confiança) */
+  --primary: 226 71% 40%;             /* #1E40AF (Primary 700) */
+  --primary-foreground: 0 0% 100%;    /* #FFFFFF */
+  --ring: 224 76% 48%;                /* #1D4ED8 (Primary 600) */
+
+  /* Neutros / Superfícies */
+  --card: 0 0% 100%;                  /* #FFFFFF */
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+
+  --secondary: 210 40% 96%;           /* slate-ish */
+  --secondary-foreground: 222 47% 11%;
+
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 19% 34%;    /* #475569 */
+
+  /* Accent (realce discreto) */
+  --accent: 214 100% 97%;             /* #EFF6FF */
+  --accent-foreground: 226 71% 40%;   /* usa primário */
+
+  /* Status */
+  --success: 142 76% 36%;             /* #16A34A */
+  --success-foreground: 0 0% 100%;
+  --warning: 41 96% 40%;              /* #CA8A04 */
+  --warning-foreground: 0 0% 100%;
+
+  --destructive: 0 72% 51%;           /* #DC2626 */
+  --destructive-foreground: 0 0% 100%;
+
+  /* Bordas / Inputs */
+  --border: 214 32% 91%;              /* #E2E8F0 */
+  --input: 214 32% 91%;
+
+  /* Extra borders used by shadcn variants */
+  --card-border: hsl(var(--border));
+  --popover-border: hsl(var(--border));
+  --primary-border: hsl(224 64% 33% / 0.25);
+  --secondary-border: hsl(var(--border));
+  --muted-border: hsl(var(--border));
+  --accent-border: hsl(224 76% 48% / 0.18);
+  --destructive-border: hsl(0 72% 51% / 0.25);
+  --button-outline: hsl(var(--border));
+  --badge-outline: hsl(var(--border));
+
+  /* Sidebar */
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 222 47% 11%;
+  --sidebar-border: 214 32% 91%;
+  --sidebar-ring: 224 76% 48%;
+
+  --sidebar-primary: 226 71% 40%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-primary-border: hsl(224 64% 33% / 0.25);
+
+  --sidebar-accent: 214 100% 97%;
+  --sidebar-accent-foreground: 226 71% 40%;
+  --sidebar-accent-border: hsl(224 76% 48% / 0.18);
+
+  /* Raio padrão (rounded-2xl como referência visual) */
+  --radius: 1rem;
+
+  /* Tipografia */
+  --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+
+.dark {
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+
+  --primary: 224 76% 48%;
+  --primary-foreground: 222 47% 11%;
+  --ring: 224 76% 48%;
+
+  --card: 222 47% 11%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+
+  --secondary: 217 33% 17%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+
+  --accent: 217 33% 17%;
+  --accent-foreground: 210 40% 98%;
+
+  --success: 142 76% 36%;
+  --success-foreground: 0 0% 100%;
+  --warning: 41 96% 40%;
+  --warning-foreground: 0 0% 100%;
+
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 217 33% 17%;
+  --input: 217 33% 17%;
+
+  --card-border: hsl(var(--border));
+  --popover-border: hsl(var(--border));
+  --primary-border: hsl(224 76% 48% / 0.25);
+  --secondary-border: hsl(var(--border));
+  --muted-border: hsl(var(--border));
+  --accent-border: hsl(224 76% 48% / 0.18);
+  --destructive-border: hsl(0 72% 51% / 0.25);
+  --button-outline: hsl(var(--border));
+  --badge-outline: hsl(var(--border));
+
+  --sidebar: 222 47% 11%;
+  --sidebar-foreground: 210 40% 98%;
+  --sidebar-border: 217 33% 17%;
+  --sidebar-ring: 224 76% 48%;
+
+  --sidebar-primary: 224 76% 48%;
+  --sidebar-primary-foreground: 222 47% 11%;
+  --sidebar-primary-border: hsl(224 76% 48% / 0.25);
+
+  --sidebar-accent: 217 33% 17%;
+  --sidebar-accent-foreground: 210 40% 98%;
+  --sidebar-accent-border: hsl(224 76% 48% / 0.18);
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+}
+
+/* Custom Utilities for Depth */
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-white/20 shadow-xl shadow-black/5;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary/20;
+  }
+}
+
+/* Calendar Customization */
+.rbc-calendar {
+  @apply font-sans;
+}
+.rbc-header {
+  @apply py-2 font-semibold text-muted-foreground uppercase text-xs tracking-wider border-b border-border;
+}
+.rbc-event {
+  @apply bg-primary rounded-md shadow-sm border-0 opacity-90 hover:opacity-100 transition-opacity;
+}
+.rbc-today {
+  @apply bg-accent/5;
+}
+.rbc-off-range-bg {
+  @apply bg-muted/50;
+}

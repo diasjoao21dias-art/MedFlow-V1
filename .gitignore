@@ -1,0 +1,17 @@
+node_modules
+dist
+.license_secret
+.DS_Store
+server/public
+vite.config.ts.*
+*.tar.gz
+
+# Local databases / persistent data
+sqlite.db
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+uploads/
+
+# Session store (when using sqlite store)
+sessions.sqlite

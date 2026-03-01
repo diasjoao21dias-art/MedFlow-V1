@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: clinic-system
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    disk:
+      name: app-data
+      mountPath: /opt/data
+      sizeGB: 5
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # SQLite paths on the persistent disk
+      - key: DB_PATH
+        value: /opt/data/sqlite.db
+      - key: UPLOAD_DIR
+        value: /opt/data/uploads
+      # Persist sessions too (recommended)
+      - key: SESSION_STORE
+        value: sqlite
+      - key: SESSION_SECRET
+        generateValue: true

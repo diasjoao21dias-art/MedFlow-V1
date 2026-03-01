@@ -1,0 +1,163 @@
+C:\Users\dom_d\Downloads\MedFlow-Tracker>npm run dev
+
+> rest-express@1.0.0 dev
+> tsx server/index.ts
+
+8:56:09 AM [express] serving on port 5000
+8:56:34 AM [express] GET /api/user 401 in 2ms :: {"message":"Não autenticado"}
+Internal Server Error: Error: Unknown authentication strategy "local"
+    at attempt (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:193:39)
+    at authenticate (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at <anonymous> (C:\Users\dom_d\Downloads\MedFlow-Tracker\server\auth.ts:113:6)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\route.js:157:13)
+    at loginLimiter (C:\Users\dom_d\Downloads\MedFlow-Tracker\server\auth.ts:78:14)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:295:15
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at strategy.pass (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:355:9)
+    at SessionStrategy.authenticate (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\strategies\session.js:126:10)
+    at attempt (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at initialize (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\initialize.js:98:5)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at session (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\express-session\index.js:494:7)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at <anonymous> (C:\Users\dom_d\Downloads\MedFlow-Tracker\server\index.ts:86:3)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at read (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\body-parser\lib\read.js:42:5)
+    at urlencodedParser (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\body-parser\lib\types\urlencoded.js:57:5)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\body-parser\lib\read.js:171:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:228:14)
+8:56:38 AM [express] POST /api/login 500 in 5ms :: {"message":"Unknown authentication strategy \"local\""}
+Internal Server Error: Error: Unknown authentication strategy "local"
+    at attempt (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:193:39)
+    at authenticate (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at <anonymous> (C:\Users\dom_d\Downloads\MedFlow-Tracker\server\auth.ts:113:6)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\route.js:157:13)
+    at loginLimiter (C:\Users\dom_d\Downloads\MedFlow-Tracker\server\auth.ts:89:12)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:295:15
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at strategy.pass (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:355:9)
+    at SessionStrategy.authenticate (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\strategies\session.js:126:10)
+    at attempt (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at initialize (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\initialize.js:98:5)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at session (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\express-session\index.js:494:7)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at <anonymous> (C:\Users\dom_d\Downloads\MedFlow-Tracker\server\index.ts:86:3)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at read (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\body-parser\lib\read.js:42:5)
+    at urlencodedParser (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\body-parser\lib\types\urlencoded.js:57:5)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\body-parser\lib\read.js:171:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:228:14)
+8:56:40 AM [express] POST /api/login 500 in 2ms :: {"message":"Unknown authentication strategy \"local\""}
+Internal Server Error: Error: Unknown authentication strategy "local"
+    at attempt (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:193:39)
+    at authenticate (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at <anonymous> (C:\Users\dom_d\Downloads\MedFlow-Tracker\server\auth.ts:113:6)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\route.js:157:13)
+    at loginLimiter (C:\Users\dom_d\Downloads\MedFlow-Tracker\server\auth.ts:89:12)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:295:15
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at strategy.pass (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:355:9)
+    at SessionStrategy.authenticate (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\strategies\session.js:126:10)
+    at attempt (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at initialize (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\passport\lib\middleware\initialize.js:98:5)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at session (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\express-session\index.js:494:7)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at <anonymous> (C:\Users\dom_d\Downloads\MedFlow-Tracker\server\index.ts:86:3)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at read (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\body-parser\lib\read.js:42:5)
+    at urlencodedParser (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\body-parser\lib\types\urlencoded.js:57:5)
+    at Layer.handleRequest (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:342:13)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:297:9
+    at processParams (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:582:12)
+    at next (C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\router\index.js:291:5)
+    at C:\Users\dom_d\Downloads\MedFlow-Tracker\node_modules\body-parser\lib\read.js:171:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:228:14)
+8:56:42 AM [express] POST /api/login 500 in 1ms :: {"message":"Unknown authentication strategy \"local\""}
