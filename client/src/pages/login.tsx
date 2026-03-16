@@ -1,15 +1,13 @@
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Stethoscope, Activity, ShieldCheck, User, Lock, ArrowRight } from "lucide-react";
+import { Stethoscope, Activity, ShieldCheck, User, Lock, ArrowRight, Eye, EyeOff } from "lucide-react";
 import { useLocation } from "wouter";
-import { useEffect } from "react";
-import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 const loginSchema = z.object({
   username: z.string().min(1, "Usuário é obrigatório"),
@@ -19,6 +17,7 @@ const loginSchema = z.object({
 export default function LoginPage() {
   const { login, isLoggingIn, user } = useAuth();
   const [, setLocation] = useLocation();
+  const [showPassword, setShowPassword] = useState(false);
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -42,17 +41,14 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col lg:grid lg:grid-cols-[1fr_480px] bg-white overflow-hidden">
+    <div className="min-h-screen flex flex-col lg:grid lg:grid-cols-[1fr_520px] bg-white overflow-hidden">
       {/* Left Side - Hero */}
       <div className="relative flex flex-col justify-center items-center p-8 lg:p-16 text-white overflow-hidden bg-slate-900 order-2 lg:order-1 flex-1 lg:flex-none">
-        {/* Background Gradient & Image */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/80 to-slate-900 z-10" />
-        <div 
-          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-overlay opacity-40 scale-105" 
+        <div
+          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-overlay opacity-40 scale-105"
           aria-hidden="true"
         />
-        
-        {/* Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-10 opacity-20">
           <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-white/20 blur-3xl animate-pulse" />
           <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-primary/30 blur-3xl animate-pulse delay-700" />
@@ -63,7 +59,7 @@ export default function LoginPage() {
             <Activity className="w-4 h-4 text-blue-300" />
             <span className="text-xs font-semibold tracking-wider uppercase">Plataforma Médica Inteligente</span>
           </div>
-          
+
           <div className="flex items-center gap-4 mb-6">
             <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/20 shrink-0">
               <Stethoscope className="w-9 h-9 text-primary" />
@@ -77,7 +73,7 @@ export default function LoginPage() {
           <h2 className="text-xl lg:text-2xl font-medium text-blue-50 leading-relaxed mb-10 opacity-90">
             Otimize sua prática médica com inteligência e segurança em cada atendimento.
           </h2>
-          
+
           <div className="space-y-6">
             {[
               { icon: Activity, label: "Agenda & Fluxo de Pacientes", desc: "Controle total de horários e salas" },
@@ -99,92 +95,129 @@ export default function LoginPage() {
       </div>
 
       {/* Right Side - Login Form */}
-      <div className="flex flex-col justify-center bg-slate-50/50 p-6 sm:p-12 lg:p-16 order-1 lg:order-2 z-20 overflow-y-auto">
-        <div className="w-full max-w-sm mx-auto space-y-8">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-display font-bold text-slate-900 tracking-tight">Bem-vindo</h2>
-            <p className="text-slate-500 font-medium">Acesse sua conta para continuar</p>
+      <div className="relative flex flex-col justify-center bg-white p-6 sm:p-12 lg:p-16 order-1 lg:order-2 overflow-hidden">
+        {/* Subtle background decorations */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-50 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none" />
+
+        <div className="relative w-full max-w-sm mx-auto flex flex-col gap-8">
+          {/* Branding */}
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/25">
+              <Stethoscope className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xl font-display font-bold text-slate-800 tracking-tight">MediFlow</span>
           </div>
 
-          <Card className="border-none shadow-2xl shadow-slate-200/60 rounded-[24px] bg-white overflow-hidden">
-            <CardContent className="p-8">
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="username"
-                    render={({ field }) => (
-                      <FormItem className="space-y-2">
-                        <FormLabel className="text-slate-700 font-semibold text-sm ml-1">Usuário</FormLabel>
-                        <FormControl>
-                          <div className="relative group">
-                            <div className="absolute left-4 top-1/2 -translate-y-1/2 transition-colors text-slate-400 group-focus-within:text-primary">
-                              <User className="w-5 h-5" />
-                            </div>
-                            <Input 
-                              placeholder="nome.sobrenome" 
-                              {...field} 
-                              className="h-12 pl-12 bg-slate-50 border-slate-100 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all" 
-                            />
-                          </div>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="password"
-                    render={({ field }) => (
-                      <FormItem className="space-y-2">
-                        <FormLabel className="text-slate-700 font-semibold text-sm ml-1">Senha</FormLabel>
-                        <FormControl>
-                          <div className="relative group">
-                            <div className="absolute left-4 top-1/2 -translate-y-1/2 transition-colors text-slate-400 group-focus-within:text-primary">
-                              <Lock className="w-5 h-5" />
-                            </div>
-                            <Input 
-                              type="password" 
-                              placeholder="••••••••" 
-                              {...field} 
-                              className="h-12 pl-12 bg-slate-50 border-slate-100 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all" 
-                            />
-                          </div>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <Button 
-                    type="submit" 
-                    className="w-full h-12 text-base font-bold rounded-xl shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all active:scale-[0.98] flex items-center justify-center gap-2 group" 
-                    disabled={isLoggingIn}
-                  >
-                    {isLoggingIn ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        <span>Entrando...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Acessar Painel</span>
-                        <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </Form>
-            </CardContent>
-          </Card>
+          {/* Heading */}
+          <div>
+            <h2 className="text-3xl font-display font-bold text-slate-900 tracking-tight leading-tight">
+              Bem-vindo de volta
+            </h2>
+            <p className="text-slate-500 mt-1.5">Insira suas credenciais para acessar o painel.</p>
+          </div>
+
+          {/* Form */}
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+              <FormField
+                control={form.control}
+                name="username"
+                render={({ field }) => (
+                  <FormItem className="space-y-1.5">
+                    <FormLabel className="text-slate-700 font-semibold text-sm">Usuário</FormLabel>
+                    <FormControl>
+                      <div className="relative group">
+                        <div className="absolute left-3.5 top-1/2 -translate-y-1/2 transition-colors text-slate-400 group-focus-within:text-primary">
+                          <User className="w-4 h-4" />
+                        </div>
+                        <Input
+                          placeholder="nome.sobrenome"
+                          data-testid="input-username"
+                          {...field}
+                          className="h-11 pl-10 pr-4 bg-slate-50 border-slate-200 rounded-xl text-slate-800 placeholder:text-slate-400 focus-visible:ring-primary/30 focus-visible:border-primary/60 focus-visible:bg-white transition-all"
+                        />
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem className="space-y-1.5">
+                    <FormLabel className="text-slate-700 font-semibold text-sm">Senha</FormLabel>
+                    <FormControl>
+                      <div className="relative group">
+                        <div className="absolute left-3.5 top-1/2 -translate-y-1/2 transition-colors text-slate-400 group-focus-within:text-primary">
+                          <Lock className="w-4 h-4" />
+                        </div>
+                        <Input
+                          type={showPassword ? "text" : "password"}
+                          placeholder="••••••••"
+                          data-testid="input-password"
+                          {...field}
+                          className="h-11 pl-10 pr-11 bg-slate-50 border-slate-200 rounded-xl text-slate-800 placeholder:text-slate-400 focus-visible:ring-primary/30 focus-visible:border-primary/60 focus-visible:bg-white transition-all"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword((v) => !v)}
+                          className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                          tabIndex={-1}
+                          aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
+                        >
+                          {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                        </button>
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <Button
+                type="submit"
+                data-testid="button-login"
+                className="w-full h-11 text-sm font-bold rounded-xl shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-all active:scale-[0.98] flex items-center justify-center gap-2 group mt-2"
+                disabled={isLoggingIn}
+              >
+                {isLoggingIn ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <span>Entrando...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Acessar Painel</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </>
+                )}
+              </Button>
+            </form>
+          </Form>
+
+          {/* Trust signals */}
+          <div className="flex items-center justify-center gap-5 pt-2">
+            <div className="flex items-center gap-1.5 text-slate-400">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+              <span className="text-xs font-medium">Conexão segura</span>
+            </div>
+            <div className="w-px h-3 bg-slate-200" />
+            <div className="flex items-center gap-1.5 text-slate-400">
+              <Activity className="w-3.5 h-3.5 text-blue-500" />
+              <span className="text-xs font-medium">Dados criptografados</span>
+            </div>
+          </div>
         </div>
-        
-        <div className="mt-auto pt-8 text-center">
-          <p className="text-xs text-slate-400 font-medium italic">
-            © 2026 MediFlow Solutions. Todos os direitos reservados.
-          </p>
-        </div>
+
+        {/* Footer */}
+        <p className="absolute bottom-6 left-0 right-0 text-center text-xs text-slate-400 font-medium">
+          © 2026 MediFlow Solutions. Todos os direitos reservados.
+        </p>
       </div>
     </div>
   );
 }
-
