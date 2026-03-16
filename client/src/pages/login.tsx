@@ -28,6 +28,11 @@ export default function LoginPage() {
   });
 
   useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  useEffect(() => {
     if (user) {
       if (user.role === 'admin') setLocation('/admin/dashboard');
       else if (user.role === 'doctor') setLocation('/doctor/dashboard');
