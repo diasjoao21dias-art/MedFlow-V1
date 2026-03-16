@@ -41,9 +41,9 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col lg:grid lg:grid-cols-[1fr_520px] bg-white overflow-hidden">
+    <div className="h-screen flex flex-col lg:grid lg:grid-cols-[1fr_500px] bg-white overflow-hidden">
       {/* Left Side - Hero */}
-      <div className="relative flex flex-col justify-center items-center p-8 lg:p-16 text-white overflow-hidden bg-slate-900 order-2 lg:order-1 flex-1 lg:flex-none">
+      <div className="relative hidden lg:flex flex-col justify-center items-center p-10 xl:p-14 text-white overflow-hidden bg-slate-900">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/80 to-slate-900 z-10" />
         <div
           className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-overlay opacity-40 scale-105"
@@ -55,38 +55,38 @@ export default function LoginPage() {
         </div>
 
         <div className="relative z-20 max-w-lg w-full">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-8 animate-in fade-in slide-in-from-top-4 duration-700">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-6 animate-in fade-in slide-in-from-top-4 duration-700">
             <Activity className="w-4 h-4 text-blue-300" />
             <span className="text-xs font-semibold tracking-wider uppercase">Plataforma Médica Inteligente</span>
           </div>
 
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/20 shrink-0">
-              <Stethoscope className="w-9 h-9 text-primary" />
+          <div className="flex items-center gap-4 mb-5">
+            <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/20 shrink-0">
+              <Stethoscope className="w-8 h-8 text-primary" />
             </div>
             <div>
-              <h1 className="text-4xl lg:text-5xl font-display font-bold tracking-tight">MediFlow</h1>
-              <p className="text-blue-200 font-medium">Gestão Clínica 360°</p>
+              <h1 className="text-4xl xl:text-5xl font-display font-bold tracking-tight">MediFlow</h1>
+              <p className="text-blue-200 font-medium text-sm">Gestão Clínica 360°</p>
             </div>
           </div>
 
-          <h2 className="text-xl lg:text-2xl font-medium text-blue-50 leading-relaxed mb-10 opacity-90">
+          <h2 className="text-lg xl:text-xl font-medium text-blue-50 leading-relaxed mb-8 opacity-90">
             Otimize sua prática médica com inteligência e segurança em cada atendimento.
           </h2>
 
-          <div className="space-y-6">
+          <div className="space-y-5">
             {[
               { icon: Activity, label: "Agenda & Fluxo de Pacientes", desc: "Controle total de horários e salas" },
               { icon: ShieldCheck, label: "Prontuário Eletrônico Seguro", desc: "Dados protegidos com criptografia" },
               { icon: Activity, label: "Faturamento & Estoque", desc: "Gestão financeira integrada" }
             ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4 group cursor-default">
-                <div className="mt-1 w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center shrink-0 transition-all group-hover:bg-primary group-hover:border-primary">
-                  <item.icon className="w-5 h-5 text-blue-200" />
+              <div key={i} className="flex items-start gap-3 group cursor-default">
+                <div className="mt-0.5 w-9 h-9 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center shrink-0 transition-all group-hover:bg-primary group-hover:border-primary">
+                  <item.icon className="w-4 h-4 text-blue-200" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-white">{item.label}</h3>
-                  <p className="text-sm text-blue-200/70">{item.desc}</p>
+                  <h3 className="font-bold text-base text-white">{item.label}</h3>
+                  <p className="text-xs text-blue-200/70">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -95,31 +95,31 @@ export default function LoginPage() {
       </div>
 
       {/* Right Side - Login Form */}
-      <div className="relative flex flex-col justify-center bg-white p-6 sm:p-12 lg:p-16 order-1 lg:order-2 overflow-hidden">
+      <div className="relative flex flex-col justify-center bg-white px-8 py-6 lg:px-12 overflow-hidden h-full">
         {/* Subtle background decorations */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-50 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-56 h-56 bg-primary/5 rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-50 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-        <div className="relative w-full max-w-sm mx-auto flex flex-col gap-8">
+        <div className="relative w-full max-w-sm mx-auto flex flex-col gap-6">
           {/* Branding */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/25">
-              <Stethoscope className="w-5 h-5 text-white" />
+            <div className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/25">
+              <Stethoscope className="w-4 h-4 text-white" />
             </div>
-            <span className="text-xl font-display font-bold text-slate-800 tracking-tight">MediFlow</span>
+            <span className="text-lg font-display font-bold text-slate-800 tracking-tight">MediFlow</span>
           </div>
 
           {/* Heading */}
           <div>
-            <h2 className="text-3xl font-display font-bold text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight leading-tight">
               Bem-vindo de volta
             </h2>
-            <p className="text-slate-500 mt-1.5">Insira suas credenciais para acessar o painel.</p>
+            <p className="text-slate-500 mt-1 text-sm">Insira suas credenciais para acessar o painel.</p>
           </div>
 
           {/* Form */}
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               <FormField
                 control={form.control}
                 name="username"
