@@ -980,9 +980,7 @@ async function seedDatabase() {
       : (await db.insert(clinics).values({
           id: SINGLE_CLINIC_ID,
           name: "Clínica Saúde Total",
-          address: "RUA OTAVIO DE BRITO, 20
-            MED CENTER, SAO LUCAS
-            38747-500 Patrocínio / Minas Gerais",
+          address: "RUA OTAVIO DE BRITO, 20, MED CENTER, SAO LUCAS, 38747-500 Patrocínio / Minas Gerais",
           phone: "(11) 5555-0123",
           subscriptionStatus: "active",
         }).returning())[0];

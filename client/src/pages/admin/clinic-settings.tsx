@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -54,13 +54,24 @@ export default function ClinicSettingsPage() {
 
   const form = useForm<ClinicFormValues>({
     resolver: zodResolver(clinicSchema),
-    values: {
-      name: clinic?.name || "",
-      cnpj: clinic?.cnpj || "",
-      address: clinic?.address || "",
-      phone: clinic?.phone || "",
+    defaultValues: {
+      name: "",
+      cnpj: "",
+      address: "",
+      phone: "",
     },
   });
+
+  useEffect(() => {
+    if (clinic) {
+      form.reset({
+        name: clinic.name || "",
+        cnpj: clinic.cnpj || "",
+        address: clinic.address || "",
+        phone: clinic.phone || "",
+      });
+    }
+  }, [clinic?.id]);
 
   const updateClinicMutation = useMutation({
     mutationFn: async (values: ClinicFormValues) => {
