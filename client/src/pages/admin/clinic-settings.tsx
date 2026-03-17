@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Loader2, Upload, Building2 } from "lucide-react";
+import { Loader2, Upload, Building2, MapPin, Phone } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { Redirect } from "wouter";
 
@@ -33,6 +33,8 @@ const clinicSchema = z.object({
     .string()
     .transform((val) => val.replace(/\D/g, ""))
     .pipe(z.string().length(14, "O CNPJ deve ter 14 dígitos")),
+  address: z.string().optional(),
+  phone: z.string().optional(),
 });
 
 type ClinicFormValues = z.infer<typeof clinicSchema>;
@@ -55,6 +57,8 @@ export default function ClinicSettingsPage() {
     values: {
       name: clinic?.name || "",
       cnpj: clinic?.cnpj || "",
+      address: clinic?.address || "",
+      phone: clinic?.phone || "",
     },
   });
 
@@ -248,6 +252,50 @@ export default function ClinicSettingsPage() {
                             field.onChange(val);
                           }}
                         />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="address"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Endereço</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                          <Input
+                            placeholder="Ex: Av. Paulista, 1000 - São Paulo/SP"
+                            data-testid="input-clinic-address"
+                            className="pl-9"
+                            {...field}
+                          />
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="phone"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Telefone</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                          <Input
+                            placeholder="Ex: (11) 5555-0123"
+                            data-testid="input-clinic-phone"
+                            className="pl-9"
+                            {...field}
+                          />
+                        </div>
                       </FormControl>
                       <FormMessage />
                     </FormItem>

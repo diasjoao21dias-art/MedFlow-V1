@@ -112,3 +112,7 @@ e cole a chave gerada para ativar.
 - `Iniciar-MedFlow.cmd` — inicializador principal (instala dependências e roda o sistema)
 - `Iniciar-MedFlow.vbs` — inicializador silencioso (usado pelo atalho do usuário)
 - `Instalar-Atalho-Desktop.cmd` — cria os atalhos na Área de Trabalho
+
+
+admin
+password123

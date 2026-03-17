@@ -922,6 +922,8 @@ export async function registerRoutes(
       const updateSchema = z.object({
         name: z.string().min(1, "Nome é obrigatório"),
         cnpj: z.string().transform(val => val.replace(/\D/g, "")).pipe(z.string().length(14, "CNPJ deve ter 14 dígitos")),
+        address: z.string().optional().nullable(),
+        phone: z.string().optional().nullable(),
         logoUrl: z.string().url().optional().nullable(),
       });
 
@@ -978,7 +980,9 @@ async function seedDatabase() {
       : (await db.insert(clinics).values({
           id: SINGLE_CLINIC_ID,
           name: "Clínica Saúde Total",
-          address: "Av. Paulista, 1000",
+          address: "RUA OTAVIO DE BRITO, 20
+            MED CENTER, SAO LUCAS
+            38747-500 Patrocínio / Minas Gerais",
           phone: "(11) 5555-0123",
           subscriptionStatus: "active",
         }).returning())[0];
